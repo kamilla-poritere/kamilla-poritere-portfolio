@@ -1,0 +1,131 @@
+.links__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.links__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: linkSlideIn 0.5s ease forwards;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+}
+
+.links__item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.links__item:hover::before {
+  transform: translateX(100%);
+}
+
+.links__item:hover {
+  transform: translateX(5px);
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(53, 204, 205, 0.2);
+}
+
+.links__item:focus-visible {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 30%, transparent);
+}
+
+.links__icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.links__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.links__item:hover .links__icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.links__text {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.links__arrow {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.links__arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+.links__item:hover .links__arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.links__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+[data-theme="light"] .links__item {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+:root[data-theme="light"] .links__item:hover {
+  box-shadow: 0 4px 20px rgba(53, 204, 205, 0.3);
+}
+
+@keyframes linkSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .links__ite {
+    transition: none;
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

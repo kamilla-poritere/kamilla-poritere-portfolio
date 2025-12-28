@@ -1,0 +1,90 @@
+.more-skills {
+  padding-bottom: 4rem;
+}
+
+.more-skills h2 {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.more-skills p {
+  margin: 1rem 0;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.skill__legend {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.skill__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.skill__legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.skill__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill {
+  padding: 6px 14px;
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+  color: var(--text);
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: default;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: skillFadeIn 0.5s ease forwards;
+}
+
+.skill:hover {
+  transform: translateY(-2px) scale(1.05);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.skill[data-level="expert"]:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 4px 12px rgba(28, 232, 167, 0.3);
+}
+
+.skill[data-level="advanced"]:hover {
+  border-color: var(--accent-purple);
+  box-shadow: 0 4px 12px rgba(159, 92, 235, 0.3);
+}
+
+.skill[data-level="moderate"]:hover {
+  border-color: var(--accent-red);
+  box-shadow: 0 4px 12px rgba(231, 85, 62, 0.3);
+}
+
+.skill[data-level="basic"]:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(53, 204, 205, 0.3);
+}
+
+@keyframes skillFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

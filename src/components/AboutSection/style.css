@@ -1,0 +1,129 @@
+.about {
+  padding: 3rem 2rem;
+  background-color: var(--main);
+  margin: 0 auto;
+}
+
+.about__greeting {
+  font-size: 1.2rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.about__name {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--accent-purple),
+    var(--accent-green)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 0.1s forwards;
+}
+
+.about__role {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 2rem 0;
+  opacity: 0.8;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 0.15s forwards;
+}
+
+.about__description {
+  margin: 2rem 0;
+}
+
+.about__description p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.about__highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.about__highlight-item {
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text);
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.about__highlight-item:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.15);
+  border-left-color: var(--accent-green);
+  box-shadow: 0 4px 12px rgba(53, 204, 205, 0.2);
+}
+
+[data-theme="light"] .about__highlight-item {
+  background: #fff;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 2rem 1.5rem;
+  }
+
+  .about__name {
+    font-size: 2.5rem;
+  }
+
+  .about__role {
+    font-size: 1.4rem;
+  }
+
+  .about__description p {
+    font-size: 1rem;
+  }
+
+  .about__highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__name {
+    font-size: 2rem;
+  }
+
+  .about__role {
+    font-size: 1.2rem;
+  }
+}

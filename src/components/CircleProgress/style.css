@@ -1,0 +1,224 @@
+.circle-progress {
+  margin: auto;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  pointer-events: all;
+  flex-wrap: wrap;
+}
+
+.circle-progress__wrapper {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInScale 0.5s ease forwards;
+}
+
+.circle-progress__circle {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.circle-progress__circle:hover {
+  transform: scale(1.15);
+}
+
+.circle-progress__svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.circle-progress__svg-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 6;
+}
+
+.circle-progress__svg-progress {
+  fill: none;
+  stroke: var(--circle-color, var(--primary));
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: var(--circle-circumference);
+  stroke-dashoffset: var(--circle-circumference);
+  animation: circleProgress 1s ease-out forwards;
+  transition: stroke 0.3s ease;
+}
+
+.circle-progress__circle:hover .circle-progress__svg-progress {
+  filter: brightness(1.2);
+}
+
+.circle-progress__value {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  pointer-events: none;
+}
+
+.circle-progress__percent {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.circle-progress__label {
+  padding-top: 8px;
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.circle-progress__tooltips {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.circle-progress__tooltip {
+  width: 200px;
+  color: #fff;
+  font-size: 14px;
+  text-align: left;
+  position: fixed;
+  padding: 1.2em;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--accent-purple),
+    var(--accent-green)
+  );
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  transform: translateX(-50%) translateY(10px);
+}
+
+.circle-progress__tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid transparent;
+  border-bottom-color: var(--accent-purple);
+}
+
+.circle-progress__tooltip-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+.circle-progress__skills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.circle-progress__skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.circle-progress__skill-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.circle-progress__skill-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 3px;
+  overflow: hidden;
+  display: block;
+}
+
+.circle-progress__skill-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 3px;
+  display: block;
+  animation: progressBarFill 0.8s ease-out forwards;
+  transform-origin: left;
+}
+
+[data-theme="light"] .circle-progress__svg-bg {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes circleProgress {
+  to {
+    stroke-dashoffset: var(--circle-offset);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes progressBarFill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .circle-progress__circle {
+    width: 55px;
+    height: 55px;
+  }
+
+  .circle-progress__value {
+    font-size: 14px;
+  }
+
+  .circle-progress__percent {
+    font-size: 9px;
+  }
+
+  .circle-progress__label {
+    font-size: 12px;
+  }
+}

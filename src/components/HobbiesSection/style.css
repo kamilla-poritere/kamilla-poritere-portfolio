@@ -1,0 +1,165 @@
+.hobbies {
+  padding: 2rem 0;
+}
+
+.hobbies__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.hobbies__subtitle {
+  font-size: 1rem;
+  color: var(--text);
+  opacity: 0.7;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 0.1s forwards;
+}
+
+.hobbies__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.hobby-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+  cursor: default;
+  outline: none;
+}
+
+.hobby-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--hobby-color, var(--primary));
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.hobby-card:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--hobby-color, var(--primary)) 35%, transparent),
+              0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: var(--hobby-color, var(--primary));
+}
+
+.hobby-card__icon {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(53, 204, 205, 0.2), rgba(53, 204, 205, 0.05));
+  border-radius: 12px;
+  color: var(--hobby-color, var(--primary));
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hobby-card__icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hobby-color, var(--primary));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hobby-card:hover .hobby-card__icon::before {
+  opacity: 0.1;
+}
+
+.hobby-card:hover .hobby-card__icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.hobby-card__icon svg {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.hobby-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.hobby-card__name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.hobby-card:hover .hobby-card__name {
+  color: var(--hobby-color, var(--primary));
+}
+
+.hobby-card__description {
+  font-size: 0.9rem;
+  color: var(--text);
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.5;
+}
+
+[data-theme="light"] .hobby-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Reduced motion safety */
+@media (prefers-reduced-motion: reduce) {
+  .hobby-card,
+  .hobby-card__icon {
+    transition: none;
+  }
+  .hobby-card,
+  .hobbies__title,
+  .hobbies__subtitle {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hobbies { padding: 1.5rem 0; }
+  .hobbies__title { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .hobbies__subtitle { font-size: 0.9rem; margin-bottom: 2rem; }
+  .hobbies__grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }
+  .hobby-card { padding: 1.2rem; gap: 1rem; }
+  .hobby-card__icon { width: 45px; height: 45px; min-width: 45px; }
+  .hobby-card__icon svg { width: 24px; height: 24px; }
+  .hobby-card__name { font-size: 1rem; }
+  .hobby-card__description { font-size: 0.85rem; }
+}
+
+@media (max-width: 480px) {
+  .hobbies__grid { grid-template-columns: 1fr; }
+  .hobby-card { padding: 1rem; }
+  .hobby-card__icon { width: 40px; height: 40px; min-width: 40px; }
+  .hobby-card__icon svg { width: 22px; height: 22px; }
+}

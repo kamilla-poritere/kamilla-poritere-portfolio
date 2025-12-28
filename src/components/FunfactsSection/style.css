@@ -1,0 +1,240 @@
+.funfacts {
+  /* max-width: 700px; */
+  margin: 2rem auto;
+  text-align: center;
+  /* padding: 2rem; */
+}
+
+.funfacts__header {
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.funfacts__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.funfacts__subtitle {
+  font-size: 0.95rem;
+  color: var(--text);
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+.funfacts__viewport {
+  position: relative;
+  min-height: 140px;
+  margin: 2rem 0;
+  /* overflow: hidden;
+  display: flex; */
+  align-items: center;
+  justify-content: center;
+}
+
+.funfacts__list {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Loader */
+.funfacts__loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  color: var(--text);
+  opacity: 0.7;
+}
+
+.loader-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fact card */
+.funfact {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 140px;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.funfact.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Controls */
+.funfacts__controls {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.funfacts__btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(53, 204, 205, 0.15);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.funfacts__btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.funfacts__btn:hover {
+  background: rgba(53, 204, 205, 0.25);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(53, 204, 205, 0.3);
+}
+
+.funfacts__btn:active {
+  transform: scale(0.95);
+}
+
+/* Dots */
+.funfacts__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 20px;
+  flex-wrap: wrap;
+}
+
+.funfacts__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.funfacts__dot.is-active {
+  background: var(--primary);
+  width: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(53, 204, 205, 0.5);
+}
+
+.funfacts__dot:hover {
+  background: rgba(53, 204, 205, 0.5);
+}
+
+/* Status */
+.funfacts__status {
+  font-size: 0.85rem;
+  color: var(--text);
+  opacity: 0.5;
+  margin-top: 1rem;
+  min-height: 16px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .funfacts {
+    padding: 1rem;
+    margin: 2rem auto;
+  }
+
+  .funfacts__title {
+    font-size: 1.5rem;
+  }
+
+  .funfacts__viewport {
+    min-height: 120px;
+  }
+
+  .funfact {
+    max-height: 120px;
+    padding: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .funfacts__controls {
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .funfacts__btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .funfacts__dots {
+    gap: 0.4rem;
+  }
+
+  .funfacts__dot.is-active {
+    width: 16px;
+  }
+}
