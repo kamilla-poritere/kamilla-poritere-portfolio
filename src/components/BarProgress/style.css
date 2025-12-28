@@ -40,7 +40,7 @@
 
 .bar__percentage {
   position: absolute;
-  top: -40px;
+  top: -12%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 12px;
