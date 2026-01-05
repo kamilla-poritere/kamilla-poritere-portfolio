@@ -14,6 +14,7 @@ A modern, multilingual portfolio website built with TypeScript and Vite. Feature
 - ⚡ **Fast & Lightweight** - Built with Vite for optimal performance
 - ♿ **Accessible** - WCAG compliant with proper ARIA labels
 - 🎯 **Modern Stack** - TypeScript, Vite, vanilla CSS
+- ✅ **Tested** - Unit tests with Jest and E2E tests with Playwright
 
 ## 🚀 Local Setup
 
@@ -64,27 +65,77 @@ npm run preview
 yarn preview
 ```
 
+## 🧪 Testing
+
+### Unit Tests
+To run unit tests with Jest:
+```bash
+npm run test
+# or            
+yarn test
+```   
+
+### Watch mode for development
+```bash         
+npm run test:watch
+# or
+yarn test:watch
+``` 
+
+### End-to-End Tests
+To run E2E tests with Playwright:
+```bash
+npm run test:e2e
+# or
+yarn test:e2e
+``` 
+
+### Run E2E tests with UI mode (interactive):
+```bash
+npm run test:e2e:ui
+# or
+yarn test:e2e:ui
+``` 
+
+### Run E2E tests in headed mode (with browser UI):
+```bash
+npm run test:e2e:headed     
+# or
+yarn test:e2e:headed
+```
+
 ## 🛠️ Tech Stack
+
+### Core
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
 - Vanilla CSS - Custom CSS with CSS variables for theming
 - [i18next](https://www.i18next.com/) for translations
 
+### Testing
+- [Jest](https://jestjs.io/) for unit testing
+- [Playwright](https://playwright.dev/) for end-to-end testing  
+
 ## 📁 Project Structure
 
 ```bash
 portfolio-ts/
-├── public/ # Static assets
+├── public/               # Static assets
 ├── src/
-│ ├── components/ # UI components
-│ ├── modules/ # Core modules (i18n, theme)
-│ ├── translations/# Language files (en, ru, lv)
-│ ├── assets/ # Images, fonts, etc.
-│ ├── main.ts # Application entry point
-│ └── style.css # Global styles
-├── index.html # HTML template
-└── vite.config.ts # Vite configuration
+│   ├── components/       # UI components
+│   ├── modules/          # Core modules (i18n, theme)
+│   │   ├── __mocks__/    # Module mocks for testing
+│   │   └── __tests__/    # Unit tests
+│   ├── translations/     # Language files (en, ru, lv)
+│   ├── assets/           # Images, fonts, etc.
+│   ├── main.ts           # Application entry point
+│   └── style.css         # Global styles
+├── e2e/                  # E2E tests
+├── index.html            # HTML template
+├── jest.config.ts        # Jest configuration
+├── playwright.config.ts  # Playwright configuration
+└── vite.config.ts        # Vite configuration
 ``` 
 
 ## 🌐 Supported Languages
