@@ -21,10 +21,10 @@ containers.forEach((id) => {
 // Load layouts first, then components
 Promise.all([
   import("./components/HeaderLayout"),
-  import("./components/HeroSection"),
-  import("./components/AboutSection"),
-  import("./components/ContentLayout"),
-  import("./components/FooterLayout"),
+  // import("./components/HeroSection"),
+  // import("./components/AboutSection"),
+  // import("./components/ContentLayout"),
+  // import("./components/FooterLayout"),
 ])
   .then(() => {
     // Wait for next tick to ensure DOM is updated
@@ -35,12 +35,12 @@ Promise.all([
     return Promise.all([
       import("./components/ContactsBlock"),
       import("./components/ExperienceSection"),
-      import("./components/EducationSection"),
+      // import("./components/EducationSection"),
       import("./components/PortfolioSection"),
       import("./components/GoodBadSection"),
       import("./components/HobbiesSection"),
       import("./components/FunfactsSection"),
-      import("./components/SkillsSection"),
+      // import("./components/SkillsSection"),
       import("./components/LinksSection"),
       import("./components/LinearProgress"),
       import("./components/CircleProgress"),

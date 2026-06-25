@@ -22,17 +22,12 @@ const langOptions = [
 ];
 
 function createLogo(): HTMLAnchorElement {
-  const logo = document.createElement("a");
-  logo.href = "#";
-  logo.className = "header__logo";
-  logo.setAttribute("aria-label", "Home");
-  logo.innerHTML = `
-    <span class="header__logo-text">
-      <span class="header__logo-first">K</span>
-      <span class="header__logo-second">P</span>
-    </span>
-  `;
-  return logo;
+  const logo = document.createElement("div");
+  // logo.className = "header__logo";
+  // logo.setAttribute("aria-label", "Home");
+  logo.innerHTML = 'Hello World ... =) __';
+
+  return null as any;
 }
 
 function createBrand(): HTMLDivElement {
